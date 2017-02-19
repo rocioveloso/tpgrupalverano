@@ -1,0 +1,38 @@
+#include<iostream>
+
+using namespace std;
+
+struct Nodo{
+	int info;
+	Nodo *sgte;
+};
+
+void push(Nodo*&pila, int valor){
+	Nodo*p=new Nodo();
+	p->info=valor;
+	p->sgte=pila;
+	pila=p;
+	return;
+}
+
+int pop(Nodo*&pila){
+	int x; 
+	Nodo*p=pila;
+	x=p->info;
+	pila=p->sgte;
+	delete p;
+	return x;
+}
+
+int main(){
+	int i;
+	
+	Nodo*pila;
+	Nodo*paux=NULL;
+	
+	push(paux, pop(pila));
+	push(paux, pop(pila));
+	push(pila, i);
+	push(pila, pop(paux));
+	push(pila, pop(paux));
+}
